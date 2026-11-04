@@ -16,6 +16,24 @@ safety:
   max_roundtrip_loss_pct: 3
   rugcheck_danger_score: 5000   # raw RugCheck score; secondary signal only
   allowed_transfer_hook_programs: []
+  # Holders excluded from concentration checks: burn address and exchange/known wallets by owner...
+  excluded_holder_owners:
+    - 1nc1nerator11111111111111111111111111111111   # incinerator (burn)
+  # ...and any holder whose owner account belongs to one of these programs (pool PDAs, lockers).
+  excluded_owner_programs:
+    - LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo    # Meteora DLMM
+    - cpamdpZCGKUy5JxQXB4dcpGPiikHawvSWAd6mEn1sGG    # Meteora DAMM v2
+    - Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB   # Meteora DAMM v1
+    - whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc    # Orca Whirlpool
+    - CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK   # Raydium CLMM
+    - 675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8   # Raydium AMM v4
+    - CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C   # Raydium CPMM
+    - pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA    # PumpSwap AMM
+    - strmRqUCoQUgGUan5YhzUZa6KqdzwX5L6FpUxfmKg5m    # Streamflow (locker)
+    - LocpQgucEQHbqNABEYvBvwoxCPsSbG91A1QaQhQQqjn    # Jupiter Lock
+  # Raydium AMM v4 authority holds vaults but is not an account; list such PDAs here.
+  excluded_holder_owners_extra:
+    - 5Q544fKrFoe6tsEbD7S8EmxGTJYAKtTVhAW5Q5pge4j1   # Raydium AMM v4 authority
 
 pool_quality:
   max_volume_tvl_ratio: 50

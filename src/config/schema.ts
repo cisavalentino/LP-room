@@ -87,6 +87,9 @@ export const ScreenerConfigSchema = z.object({
     max_roundtrip_loss_pct: z.number().nonnegative(),
     rugcheck_danger_score: z.number().nonnegative(),
     allowed_transfer_hook_programs: z.array(z.string()),
+    excluded_holder_owners: z.array(z.string()),
+    excluded_owner_programs: z.array(z.string()),
+    excluded_holder_owners_extra: z.array(z.string()).default([]),
   }),
   pool_quality: z.object({
     max_volume_tvl_ratio: z.number().positive(),
