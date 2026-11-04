@@ -1,0 +1,49 @@
+# Starting defaults, meant to be tuned during paper trading — not recommendations.
+hard_filters:
+  min_tvl: 50000
+  min_volume_24h: 100000
+  min_pool_age_hours: 24
+  min_token_age_days: 3
+  min_txns_24h: 500
+  min_unique_traders_24h: 150   # applied only when the data source provides it
+
+safety:
+  max_transfer_fee_bps: 0
+  max_top10_pct: 30
+  max_single_holder_pct: 10
+  max_insider_cluster_pct: 20
+  honeypot_test_usd: 20
+  max_roundtrip_loss_pct: 3
+  rugcheck_danger_score: 5000   # raw RugCheck score; secondary signal only
+  allowed_transfer_hook_programs: []
+
+pool_quality:
+  max_volume_tvl_ratio: 50
+  min_unique_trader_txn_ratio: 0.02   # unique traders / txns; below → wash-trading penalty
+  max_tvl_drop_24h_pct: 30
+
+score:
+  weights:
+    fee_apr_adj: 0.35
+    volume_quality: 0.15
+    liquidity_depth: 0.15
+    token_safety: 0.15
+    age: 0.10
+    volatility_penalty: 0.10
+  fee_apr_cap: 500        # % APR above which no extra credit
+  tvl_full_credit: 2000000
+  age_full_credit_days: 90
+  keep_top: 20
+
+metadata_red_flags:
+  - airdrop
+  - claim
+  - giveaway
+  - free
+  - reward
+  - "http"
+  - "www."
+  - ".com"
+  - ".io"
+  - ".xyz"
+  - "t.me"

@@ -1,0 +1,32 @@
+{
+  "name": "lp-room",
+  "version": "1.0.0",
+  "description": "Multi-agent Solana LP desk (paper mode)",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "NODE_OPTIONS=--disable-warning=ExperimentalWarning vitest run",
+    "test:watch": "vitest",
+    "cli": "NODE_OPTIONS=--disable-warning=ExperimentalWarning tsx src/cli.ts",
+    "start": "NODE_OPTIONS=--disable-warning=ExperimentalWarning tsx src/cli.ts run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.99.0",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  }
+}

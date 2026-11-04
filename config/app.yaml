@@ -1,0 +1,33 @@
+# LP-room application config. Secrets (RPC URL with API key, Telegram token) come from env vars.
+mode: paper            # paper only in this build; approval/auto are rejected at load time
+database:
+  path: data/lp-room.db
+
+rpc:
+  url_env: SOLANA_RPC_URL          # e.g. Helius mainnet URL with api-key
+  default_url: https://api.mainnet-beta.solana.com
+  commitment: confirmed
+
+apis:
+  meteora_dlmm: https://dlmm-api.meteora.ag
+  dexscreener: https://api.dexscreener.com
+  jupiter: https://lite-api.jup.ag
+  rugcheck: https://api.rugcheck.xyz
+  request_timeout_ms: 15000
+
+telegram:
+  token_env: TELEGRAM_BOT_TOKEN
+  chat_id_env: TELEGRAM_CHAT_ID    # only this chat may issue commands
+  poll_timeout_s: 30
+
+schedule:
+  screener_full_scan_min: 45
+  screener_recheck_held_min: 180
+  monitor_interval_min: 2
+  manager_cycle_min: 15
+  executor_poll_s: 30
+
+paper:
+  starting_balances:            # simulated wallet at first start
+    SOL: 20
+    USDC: 2000

@@ -1,1 +1,10 @@
 linkscope/
+node_modules/
+dist/
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.env
+coverage/

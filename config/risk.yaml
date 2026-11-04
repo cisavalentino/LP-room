@@ -1,0 +1,43 @@
+# Starting defaults, meant to be tuned during paper trading — not recommendations.
+portfolio:
+  max_position_pct: 10          # of portfolio value
+  max_open_positions: 8
+  max_token_exposure_pct: 15    # one non-base token across all pools
+  max_non_major_pct: 50
+  sol_reserve: 0.5              # SOL never deployed (fees / rent)
+  daily_loss_limit_pct: 5       # block new entries
+  kill_switch_drawdown_pct: 15  # from peak → exit everything, stop, alert
+
+trade:
+  max_slippage_bps_major: 100
+  max_slippage_bps_other: 200
+  max_priority_fee_lamports: 200000
+  max_price_impact_pct: 1
+  screened_within_hours: 6
+  reentry_cooldown_hours: 24    # after exiting a pool at a loss
+  min_position_usd: 50          # resizing below this rejects instead
+
+rebalance:
+  max_per_position_per_day: 3
+  cooldown_min: 60
+
+modes:
+  auto_max_size_usd: 250
+  human_approval_ttl_min: 30
+
+executor:
+  proposal_ttl_min: 30          # proposal older than this is sent back to Risk
+  price_tolerance_pct: 2        # price moved more than this since approval → back to Risk
+  balance_tolerance_pct: 1.5    # simulated vs proposed balance change
+  max_retries: 3
+
+program_allowlist:
+  - LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo   # Meteora DLMM
+  - whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc   # Orca Whirlpool
+  - CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK  # Raydium CLMM
+  - JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4   # Jupiter v6
+  - "11111111111111111111111111111111"            # System
+  - TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA   # SPL Token
+  - TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb   # Token-2022
+  - ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL  # Associated Token Account
+  - ComputeBudget111111111111111111111111111111   # Compute Budget
