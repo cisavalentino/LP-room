@@ -1,0 +1,19 @@
+import type { Dex } from "../types";
+
+export const PROGRAMS = {
+  METEORA_DLMM: "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo",
+  ORCA_WHIRLPOOL: "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+  RAYDIUM_CLMM: "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+  JUPITER_V6: "JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4",
+  SYSTEM: "11111111111111111111111111111111",
+  TOKEN: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+  TOKEN_2022: "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  ATA: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+  COMPUTE_BUDGET: "ComputeBudget111111111111111111111111111111",
+} as const;
+
+export const DEX_PROGRAM: Record<Dex, string> = {
+  meteora_dlmm: PROGRAMS.METEORA_DLMM,
+  orca_whirlpool: PROGRAMS.ORCA_WHIRLPOOL,
+  raydium_clmm: PROGRAMS.RAYDIUM_CLMM,
+};
