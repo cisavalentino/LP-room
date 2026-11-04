@@ -1,0 +1,19 @@
+# Position Manager monitor + triggers. Starting defaults, to be tuned in paper trading.
+triggers:
+  out_of_range_min: 30
+  il_high_pct: 5               # and fees don't cover it
+  stop_loss_pct: -10           # net PnL % → critical, code proposes FULL_EXIT
+  take_profit_pct: 25          # net PnL %
+  take_profit_fees_pct: 15     # fees earned as % of deposit
+  tvl_drop_1h_pct: 30
+  tvl_drop_severe_pct: 50      # critical, code proposes FULL_EXIT
+  price_crash_1h_pct: 25
+  fees_dried_up_apr: 10        # % APR
+  fees_dried_up_hours: 6
+  claim_due_usd: 25
+
+paper_fees:
+  # Paper fee accrual: pool fees × (our in-range value / pool TVL) × boost.
+  # 1.0 is conservative (real DLMM liquidity near the active bin usually earns more).
+  share_boost: 1.0
+  max_accrual_gap_min: 15      # cap accrual across monitor gaps (in-range status unknown)

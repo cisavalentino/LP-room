@@ -5,6 +5,7 @@ import type { z } from "zod";
 import {
   AppConfigSchema,
   KnownAssetsSchema,
+  PositionsConfigSchema,
   RiskConfigSchema,
   ScreenerConfigSchema,
   type Config,
@@ -26,6 +27,7 @@ export function loadConfig(dir = process.env.LP_ROOM_CONFIG_DIR ?? "config"): Co
     app: loadYaml(join(base, "app.yaml"), AppConfigSchema),
     risk: loadYaml(join(base, "risk.yaml"), RiskConfigSchema),
     screener: loadYaml(join(base, "screener.yaml"), ScreenerConfigSchema),
+    positions: loadYaml(join(base, "positions.yaml"), PositionsConfigSchema),
     knownAssets: loadYaml(join(base, "known-assets.yaml"), KnownAssetsSchema),
   };
 }

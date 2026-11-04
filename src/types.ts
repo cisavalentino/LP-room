@@ -111,7 +111,7 @@ export interface Position {
   deposit_y: number;
   deposit_usd: number;
   entry_price: number;
-  model: unknown;
+  model: import("./positions/dlmmModel").DlmmPositionModel | null;
   fees_claimed_usd: number;
   tx_costs_usd: number;
   status: "OPEN" | "CLOSED";

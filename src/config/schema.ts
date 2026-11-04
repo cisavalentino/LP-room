@@ -113,6 +113,26 @@ export const ScreenerConfigSchema = z.object({
   metadata_red_flags: z.array(z.string()),
 });
 
+export const PositionsConfigSchema = z.object({
+  triggers: z.object({
+    out_of_range_min: z.number().positive(),
+    il_high_pct: z.number().positive(),
+    stop_loss_pct: z.number().negative(),
+    take_profit_pct: z.number().positive(),
+    take_profit_fees_pct: z.number().positive(),
+    tvl_drop_1h_pct: z.number().positive(),
+    tvl_drop_severe_pct: z.number().positive(),
+    price_crash_1h_pct: z.number().positive(),
+    fees_dried_up_apr: z.number().nonnegative(),
+    fees_dried_up_hours: z.number().positive(),
+    claim_due_usd: z.number().positive(),
+  }),
+  paper_fees: z.object({
+    share_boost: z.number().positive(),
+    max_accrual_gap_min: z.number().positive(),
+  }),
+});
+
 export const KnownAssetSchema = z.object({
   symbol: z.string(),
   name: z.string(),
@@ -125,10 +145,12 @@ export type AppConfig = z.infer<typeof AppConfigSchema>;
 export type RiskConfig = z.infer<typeof RiskConfigSchema>;
 export type ScreenerConfig = z.infer<typeof ScreenerConfigSchema>;
 export type KnownAsset = z.infer<typeof KnownAssetSchema>;
+export type PositionsConfig = z.infer<typeof PositionsConfigSchema>;
 
 export interface Config {
   app: AppConfig;
   risk: RiskConfig;
   screener: ScreenerConfig;
+  positions: PositionsConfig;
   knownAssets: KnownAsset[];
 }
